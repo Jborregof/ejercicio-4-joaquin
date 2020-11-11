@@ -5,4 +5,9 @@
 let buttonShowList = document.getElementById("showList");
 buttonShowList.addEventListener("click", getUsers);
 
-function getUsers() {}
+function getUsers() {
+  var array = [];
+  fetch("./users.json")
+    .then(response => response.json())
+    .then(data => (array = data)); //diapositivas copiar sin ref
+}
