@@ -18,9 +18,9 @@ function getUsers() {
       console.log("Nombres:");
       console.log(array.map(a => a.name));
       //Seleccionamos los usuarios cuyo money sea mayor que 500
-      array = data.filter(x => x.money > 500);
+      array = data.filter(a => a.money > 500);
       //Recorremos la lista y la imprimimos
-      console.log("Personas con mas de 500 de money: ")
+      console.log("Personas con mas de 500 de money: ");
       array.forEach(a => console.log(a.name));
     });
 }
