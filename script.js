@@ -6,10 +6,21 @@ let buttonShowList = document.getElementById("showList");
 buttonShowList.addEventListener("click", getUsers);
 
 function getUsers() {
+  //Definimos el array
+  var array = [];
+  //Usamos la funcion fetch con el users.json
   fetch("./users.json")
     .then(response => response.json())
     .then(data => {
-      console.log(data);
-      console.log(data.filter(x => x.money > 500));
-    }); //diapositivas copiar sin ref
+      //Copiamos en el array el data (pero no la referencia)
+      array = [...data];
+      //Hacemos un map para obtener un array con los nombres tan solo y lo imprimimos
+      console.log("Nombres:");
+      console.log(array.map(a => a.name));
+      //Seleccionamos los usuarios cuyo money sea mayor que 500
+      array = data.filter(x => x.money > 500);
+      //Recorremos la lista y la imprimimos
+      console.log("Personas con mas de 500 de money: ")
+      array.forEach(a => console.log(a.name));
+    });
 }
