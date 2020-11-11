@@ -6,8 +6,10 @@ let buttonShowList = document.getElementById("showList");
 buttonShowList.addEventListener("click", getUsers);
 
 function getUsers() {
-  var array = [];
   fetch("./users.json")
     .then(response => response.json())
-    .then(data => (array = data)); //diapositivas copiar sin ref
+    .then(data => {
+      console.log(data);
+      console.log(data.filter(x => x.money > 500));
+    }); //diapositivas copiar sin ref
 }
